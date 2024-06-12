@@ -1,0 +1,119 @@
+{
+  "home": {
+    "title": "Home"
+  },
+
+  "navbar": {
+    "home": "Home",
+    "login": "Login",
+    "register": "Sign up",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+
+  "auth": {
+    "register": {
+      "title": "Rejestracja",
+      "description": "Załóż konto używając swojego adresu e-mail, by otrzymać dostęp do licznych przywilejów, jak: historia zamówień, wiadomości, lista ulubionych produktów i wiele więcej!",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "password": "Hasło",
+      "password_confirmation": "Potwierdź hasło",
+      "register_button": "Zarejestruj się"
+    },
+
+    "login": {
+      "title": "Zaloguj się",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "password": "Hasło",
+      "forgot_password": "Zapomniałeś hasła?",
+      "login_button": "Zaloguj się",
+      "default_error": "Wystąpił błąd podczas logowania. Spróbuj ponownie później.",
+      "invalid_credentials": "Nieprawidłowy login lub hasło.",
+      "do_not_have_account": "Nie masz jeszcze konta?",
+      "register_button": "Utwórz konto"
+    },
+
+    "forgot_password": {
+      "title": "Zapomniane hasło",
+      "description": "Zapomniałeś hasła? Nie ma problemu. Po prostu podaj swój adres e-mail, a wyślemy Ci link do zresetowania hasła.",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "reset_button": "Wyślij email z linkiem resetującym",
+      "reset_success": "Link do zresetowania hasła został wysłany na Twój adres e-mail"
+    },
+
+    "password_reset": {
+      "title": "Zresetuj hasło",
+      "password": "Nowe hasło",
+      "password_confirmation": "Potwierdź nowe hasło",
+      "reset_button": "Zresetuj hasło",
+      "reset_success": "Hasło zostało zresetowane",
+      "reset_error": "Wystąpił błąd podczas resetowania hasła. Spróbuj ponownie później."
+    },
+
+    "verify_email": {
+      "title": "Potwierdź adres e-mail",
+      "description": "Aby potwierdzić adres e-mail, kliknij w poniższy przycisk.",
+      "verify_button": "Potwierdź",
+      "verification_error": "Wystąpił błąd podczas weryfikacji adresu e-mail. Spróbuj ponownie później."
+    },
+
+    "request_verification_notification": {
+      "title": "Nie otrzymałeś linku weryfikacyjnego?",
+      "description": "Kliknij w poniższy przycisk, aby wysłać ponownie link weryfikacyjny",
+      "resend_button": "Wyślij ponownie link aktywacyjny",
+      "sending": "Wysyłanie...",
+      "sent": "Link weryfikacyjny został wysłany na Twój adres e-mail",
+      "unauthorized_error": "Wystąpił błąd podczas wysyłania linku weryfikacyjnego. Zaloguj się ponownie lub spróbuj później."
+    }
+  },
+
+  "profile": {
+    "title": "Dzień dobry, :name"
+  },
+
+  "seo": {
+    "home": {
+      "title": "Quality-Cover",
+      "description": "Q-Cover to producent farb i tynków elewacyjnych. W naszej ofercie znajdziesz tynki mozaikowe, tynki dekoracyjne, farby elewacyjne, farby wewnętrzne, farby dachowe oraz beton architektoniczny.",
+      "keywords": "farby elewacyjne, tynki mozaikowe, tynki dekoracyjne, farby wewnętrzne, farby dachowe, beton architektoniczny"
+    },
+    "profile": {
+      "title": "Twój profil",
+      "description": "Twój profil użytkownika Q-Cover. Sprawdź swoje zamówienia, aktualizuj dane osobowe i zarządzaj swoim kontem.",
+      "keywords": "profil, użytkownik, zamówienia, dane, Q-Cover"
+    },
+    "register": {
+      "title": "Rejestracja",
+      "description": "Zarejestruj się w sklepie Q-Cover. Utwórz konto, aby móc składać zamówienia i korzystać z innych funkcji sklepu.",
+      "keywords": "rejestracja, konto, Q-Cover"
+    },
+    "login": {
+      "title": "Logowanie",
+      "description": "Zaloguj się do sklepu Q-Cover. Wpisz swój adres e-mail i hasło, aby móc składać zamówienia i korzystać z innych funkcji sklepu.",
+      "keywords": "logowanie, konto, Q-Cover"
+    },
+    "forgot_password": {
+      "title": "Zapomniane hasło",
+      "description": "Zapomniałeś hasła do sklepu Q-Cover? Wpisz swój adres e-mail, aby zresetować hasło.",
+      "keywords": "zapomniałeś hasła, resetowanie hasła, Q-Cover"
+    },
+    "password_reset": {
+      "title": "Zresetuj hasło",
+      "description": "Zresetuj swoje hasło w sklepie Q-Cover. Wpisz nowe hasło, aby zresetować stare.",
+      "keywords": "resetowanie hasła, nowe hasło, Q-Cover"
+    },
+    "verify_email": {
+      "title": "Potwierdź adres e-mail",
+      "description": "Potwierdź swój adres e-mail w sklepie Q-Cover. Kliknij w link, aby aktywować swoje konto.",
+      "keywords": "potwierdzenie, e-mail, konto, Q-Cover"
+    },
+    "request_verification_notification": {
+      "title": "Ponowne wysłanie linku weryfikacyjnego",
+      "description": "Nie otrzymałeś linku weryfikacyjnego do sklepu Q-Cover? Kliknij w link, aby wysłać ponownie link aktywacyjny.",
+      "keywords": "link weryfikacyjny, e-mail, Q-Cover"
+    }
+  }
+}

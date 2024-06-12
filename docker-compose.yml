@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  next-app:
+    build:
+      context: .
+    image: next-app
+    ports:
+      - "80:3000"
