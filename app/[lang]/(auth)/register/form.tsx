@@ -1,39 +1,23 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useState, useTransition } from "react";
+import { FormEvent, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import FormInput from "@/components/forms/form-input";
 import { signIn } from "@/lib/Auth";
 import fetchServer from "@/actions/fetch-server";
 
-type RegisterForm = {
-    email: string,
-    password: string,
-    password_confirmation: string
-};
-
 export default function RegisterForm({ dictionary }: { dictionary: Record<string, string> }) {
     const [isPending, startTransition] = useTransition();
     const [errors, setErrors] = useState<Record<string, string>>({});
 
-    const [formData, setFormData] = useState<RegisterForm>({
-        email: '',
-        password: '',
-        password_confirmation: ''
-    });
-
     const router = useRouter();
     const redirect = () => router.push('/request-email-verification');
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value
-        });
-    }
-
     const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+        const formData = Object.fromEntries(form.entries());
 
         setErrors({});
 
@@ -45,6 +29,7 @@ export default function RegisterForm({ dictionary }: { dictionary: Record<string
                     body: JSON.stringify(formData),
                     returns: 'all'
                 }).then(async (response) => {
+                    console.log(response)
                     if (response.status === 422) {
                         const errors = response.data;
 
@@ -71,12 +56,19 @@ export default function RegisterForm({ dictionary }: { dictionary: Record<string
 
     return (
         <form onSubmit={submit} className="flex flex-col space-y-6">
+            <FormInput label={dictionary.name}
+                       id="name"
+                       name="name"
+                       type="name"
+                       error={errors.name}
+                       required
+            />
+
             <FormInput label={dictionary.email}
                        id="email"
                        name="email"
                        type="email"
                        error={errors.email}
-                       onChange={handleChange}
                        required
             />
 
@@ -85,7 +77,6 @@ export default function RegisterForm({ dictionary }: { dictionary: Record<string
                        name="password"
                        type="password"
                        error={errors.password}
-                       onChange={handleChange}
                        required
             />
 
@@ -94,13 +85,12 @@ export default function RegisterForm({ dictionary }: { dictionary: Record<string
                        name="password_confirmation"
                        type="password"
                        error={errors.password_confirmation}
-                       onChange={handleChange}
                        required
             />
 
             <button type="submit"
                     disabled={isPending}
-                    className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500 rounded-none shadow-none"
+                    className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500"
             >
                 {dictionary.register_button}
             </button>

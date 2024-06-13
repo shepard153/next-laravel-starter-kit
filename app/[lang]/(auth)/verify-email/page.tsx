@@ -17,12 +17,6 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
 export default async function VerifyEmail({ params: { lang } }: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(lang);
 
-    const breadcrumbPaths = [
-        {
-            title: dictionary.breadcrumbs.verify_email
-        }
-    ];
-
     return (
         <main className="flex flex-col">
             <div className="relative flex flex-col max-w-xl w-full mx-auto space-y-8 my-8 xl:my-20 px-4 xl:px-14 py-10 bg-white">

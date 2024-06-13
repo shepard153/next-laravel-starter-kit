@@ -15,6 +15,7 @@
     "register": {
       "title": "Rejestracja",
       "description": "Załóż konto używając swojego adresu e-mail, by otrzymać dostęp do licznych przywilejów, jak: historia zamówień, wiadomości, lista ulubionych produktów i wiele więcej!",
+      "name": "Imię i nazwisko",
       "email": "E-mail",
       "email_placeholder": "mail@example.com",
       "password": "Hasło",

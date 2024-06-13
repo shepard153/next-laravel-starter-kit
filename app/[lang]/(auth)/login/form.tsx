@@ -82,7 +82,7 @@ export default function LoginForm({ dictionary }: { dictionary: Record<string, s
 
                 <button type="submit"
                         disabled={isPending}
-                        className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500 rounded-none shadow-none"
+                        className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500"
                 >
                     {dictionary.login_button}
                 </button>

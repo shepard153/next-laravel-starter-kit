@@ -78,7 +78,7 @@ export default function ForgottenPasswordForm({ dictionary }: { dictionary: Reco
 
             <button type="submit"
                     disabled={isPending}
-                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold rounded-none shadow-none"
+                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold"
             >
                 {dictionary.reset_button}
             </button>

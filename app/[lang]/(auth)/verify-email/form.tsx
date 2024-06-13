@@ -27,7 +27,7 @@ export default function VerifyEmailForm({ dictionary }: { dictionary: Record<str
                     bearer: true,
                     returns: "status"
                 })
-
+console.log(response)
                 if (response !== 200) {
                     setError(dictionary.verification_error);
                 } else {
@@ -46,7 +46,7 @@ export default function VerifyEmailForm({ dictionary }: { dictionary: Record<str
         <form onSubmit={submit} className="flex flex-col">
             <button type="submit"
                     disabled={isPending}
-                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold rounded-none shadow-none"
+                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold"
             >
                 {dictionary.verify_button}
             </button>

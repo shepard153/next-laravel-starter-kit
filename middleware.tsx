@@ -41,13 +41,17 @@ export async function middleware(request: NextRequest) {
         locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
 
+    // Get query params
+    const url = request.url;
+    const urlParams = url.split('?')[1];
+
     if (pathnameIsMissingLocale) {
         const locale = getLocale(request);
 
         if (locale === i18n.defaultLocale) {
             return NextResponse.rewrite(
                 new URL(
-                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}`,
+                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}?${urlParams}`,
                     request.url
                 )
             )
@@ -55,7 +59,7 @@ export async function middleware(request: NextRequest) {
 
         return NextResponse.redirect(
             new URL(
-                `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}`,
+                `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}?${urlParams}`,
                 request.url
             )
         )

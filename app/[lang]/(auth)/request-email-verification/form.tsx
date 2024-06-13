@@ -4,8 +4,6 @@ import { redirect } from "next/navigation";
 import { FormEvent, useState, useTransition } from "react";
 import useSession from "@/hooks/use-session";
 import fetchServer from "@/actions/fetch-server";
-import Button from "@mui/material/Button";
-import { EastOutlined } from "@mui/icons-material";
 
 export default function Form({ dictionary }: { dictionary: Record<string, string> }) {
     const { session } = useSession()
@@ -47,15 +45,12 @@ export default function Form({ dictionary }: { dictionary: Record<string, string
                             {dictionary.sent}
                         </div>
                     ) : (
-                    <Button variant="contained"
-                            color="warning"
-                            type="submit"
-                            endIcon={<EastOutlined/>}
+                    <button type="submit"
                             disabled={isPending}
-                            className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold rounded-none shadow-none"
+                            className="px-6 py-4 text-sm text-white xl:text-base tracking-widest uppercase bg-sky-500"
                     >
                         {isPending ? dictionary.sending : dictionary.resend_button}
-                    </Button>
+                    </button>
                 )}
             </form>
 
