@@ -1,0 +1,89 @@
+{
+  "home": {
+    "title": "Home"
+  },
+
+  "navbar": {
+    "home": "Home",
+    "login": "Login",
+    "register": "Sign up",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+
+  "auth": {
+    "register": {
+      "title": "Sign up",
+      "description": "Create an account to manage your profile.",
+      "name": "Name",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "password": "Password",
+      "password_confirmation": "Confirm password",
+      "register_button": "Sign up"
+    },
+
+    "login": {
+      "title": "Login",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "password": "Password",
+      "forgot_password": "Forgot password?",
+      "login_button": "Login",
+      "default_error": "An error occurred. Please try again later.",
+      "invalid_credentials": "Invalid credentials. Please try again.",
+      "do_not_have_account": "Don't have an account?",
+      "register_button": "Sign up"
+    },
+
+    "forgot_password": {
+      "title": "Forgot password",
+      "description": "Enter your e-mail address to reset your password.",
+      "email": "E-mail",
+      "email_placeholder": "mail@example.com",
+      "reset_button": "Send reset link",
+      "reset_success": "Password reset link has been sent"
+    },
+
+    "password_reset": {
+      "title": "Reset password",
+      "password": "New password",
+      "password_confirmation": "Confirm new password",
+      "reset_button": "Reset password",
+      "reset_success": "Password has been reset",
+      "reset_error": "An error occurred. Please try again later."
+    },
+
+    "verify_email": {
+      "title": "Verify e-mail",
+      "description": "Click the button below to verify your e-mail address.",
+      "verify_button": "Confirm e-mail",
+      "verification_error": "An error occurred. Please try again later."
+    },
+
+    "request_verification_notification": {
+      "title": "Resend verification link",
+      "description": "Click the button below to resend the verification link.",
+      "resend_button": "Resend verification link",
+      "sent": "Verification link has been sent",
+      "unauthorized_error": "An error occurred. Please try again later."
+    }
+  },
+
+  "profile": {
+    "title": "Hello, :name"
+  },
+
+  "seo": {
+    "home": {
+      "title": "Laravel",
+      "description": "The Laravel PHP framework",
+      "keywords": "laravel, php, framework, web, artisans"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "User profile",
+      "keywords": "profile, user, account"
+    }
+  }
+}
