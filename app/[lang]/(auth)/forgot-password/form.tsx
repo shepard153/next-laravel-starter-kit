@@ -2,8 +2,8 @@
 
 import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import FormInput from "@/components/forms/form-input";
-import fetchServer from "@/actions/fetch-server";
 import SubmitButton from "@/components/forms/submit-button";
+import fetchServer from "@/actions/fetch-server";
 
 export default function ForgottenPasswordForm({ dictionary }: { dictionary: Record<string, string> }) {
     const [isPending, startTransition] = useTransition();

@@ -5,7 +5,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
 
     return (
         <main className="flex flex-col">
-
+            <h1>{dictionary.home.title}</h1>
         </main>
     );
 }

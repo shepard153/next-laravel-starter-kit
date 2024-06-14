@@ -39,7 +39,7 @@ export default async function RootLayout({ children, params }: Readonly<{
         <Providers lang={params.lang}>
             <Navbar dictionary={dictionary.navbar}/>
             {children}
-            <Footer dictionary={dictionary.footer}/>
+            <Footer />
         </Providers>
         </body>
         </html>

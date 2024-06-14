@@ -43,26 +43,20 @@ export async function middleware(request: NextRequest) {
 
     // Get query params
     const url = request.url;
-    const urlParams = url.split('?')[1];
+    const urlParams = url.split('?')[1]
+        ? `?${url.split('?')[1]}`
+        : '';
 
     if (pathnameIsMissingLocale) {
-        const locale = getLocale(request);
+        const locale = i18n.defaultLocale;
 
-        if (locale === i18n.defaultLocale) {
             return NextResponse.rewrite(
                 new URL(
-                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}?${urlParams}`,
+                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}${urlParams}`,
                     request.url
                 )
             )
-        }
 
-        return NextResponse.redirect(
-            new URL(
-                `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}?${urlParams}`,
-                request.url
-            )
-        )
     }
 
     if (authRedirectUrl) {

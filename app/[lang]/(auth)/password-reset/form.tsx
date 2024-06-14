@@ -3,30 +3,20 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import FormInput from "@/components/forms/form-input";
-import fetchServer from "@/actions/fetch-server";
 import SubmitButton from "@/components/forms/submit-button";
+import fetchServer from "@/actions/fetch-server";
 
 export default function ForgottenPasswordForm({ dictionary }: { dictionary: Record<string, string> }) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
     const [errors, setErrors] = useState<Record<string, string>>({});
-    const [formData, setFormData] = useState({
-        password: '',
-        password_confirmation: '',
-        token: searchParams.get('token') || '',
-        email: searchParams.get('email') || ''
-    });
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value
-        });
-    }
 
     const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+        const formData = Object.fromEntries(form.entries());
 
         setErrors({});
 
@@ -63,7 +53,6 @@ export default function ForgottenPasswordForm({ dictionary }: { dictionary: Reco
                        id="password"
                        name="password"
                        type="password"
-                       onChange={handleChange}
                        error={errors.password}
                        required
             />
@@ -72,7 +61,6 @@ export default function ForgottenPasswordForm({ dictionary }: { dictionary: Reco
                        id="password_confirmation"
                        name="password_confirmation"
                        type="password"
-                       onChange={handleChange}
                        error={errors.password_confirmation}
                        required
             />

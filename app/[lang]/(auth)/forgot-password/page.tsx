@@ -1,16 +1,5 @@
-import { Metadata } from "next";
 import { getDictionary, Locale } from "@/dictionaries";
 import ForgottenPasswordForm from "./form";
-import getMetadata from "@/actions/get-metadata";
-
-export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
-    const dictionary = await getDictionary(params.lang);
-
-    return getMetadata({
-        dictionary: dictionary.seo.forgot_password,
-        path: `${params.lang}/forgot-password`
-    });
-}
 
 export default async function ForgotPassword({ params: { lang } }: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(lang);

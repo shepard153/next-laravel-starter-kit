@@ -3,9 +3,9 @@
 import { FormEvent, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import FormInput from "@/components/forms/form-input";
+import SubmitButton from "@/components/forms/submit-button";
 import { signIn } from "@/lib/Auth";
 import fetchServer from "@/actions/fetch-server";
-import SubmitButton from "@/components/forms/submit-button";
 
 export default function RegisterForm({ dictionary }: { dictionary: Record<string, string> }) {
     const [isPending, startTransition] = useTransition();

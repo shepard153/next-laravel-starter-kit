@@ -1,18 +1,7 @@
-import { Metadata } from "next";
 import { Suspense } from "react";
 import { getDictionary, Locale } from "@/dictionaries";
 import ForgottenPasswordForm from "./form";
-import getMetadata from "@/actions/get-metadata";
 import Loading from "@/components/utils/loading";
-
-export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
-    const dictionary = await getDictionary(params.lang);
-
-    return getMetadata({
-        dictionary: dictionary.seo.password_reset,
-        path: `${params.lang}/password-reset`
-    });
-}
 
 export default async function PasswordReset({ params: { lang } }: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(lang);

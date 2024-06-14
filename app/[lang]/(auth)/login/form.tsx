@@ -1,35 +1,23 @@
 'use client';
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChangeEvent, FormEvent, useState, useTransition } from "react";
+import { FormEvent, useState, useTransition } from "react";
 import FormInput from "@/components/forms/form-input";
 import SubmitButton from "@/components/forms/submit-button";
 import { signIn } from "@/lib/Auth";
 
-type LoginForm = {
-    email: string,
-    password: string
-};
 
 export default function LoginForm({ dictionary }: { dictionary: Record<string, string> }) {
     const [isPending, startTransition] = useTransition();
     const searchParams = useSearchParams();
     const router = useRouter();
     const [error, setError] = useState<string | null>(searchParams.get("error"));
-    const [formData, setFormData] = useState<LoginForm>({
-        email: '',
-        password: ''
-    });
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.id]: e.target.value
-        });
-    }
 
     const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = new FormData(e.currentTarget);
+        const formData = Object.fromEntries(form.entries());
 
         startTransition(async () => {
             try {
@@ -68,7 +56,6 @@ export default function LoginForm({ dictionary }: { dictionary: Record<string, s
                            id="email"
                            name="email"
                            type="email"
-                           onChange={handleChange}
                            required
                 />
 
@@ -76,7 +63,6 @@ export default function LoginForm({ dictionary }: { dictionary: Record<string, s
                            id="password"
                            name="password"
                            type="password"
-                           onChange={handleChange}
                            required
                 />
 

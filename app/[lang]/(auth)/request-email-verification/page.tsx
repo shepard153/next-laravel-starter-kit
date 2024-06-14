@@ -1,17 +1,5 @@
-import { Metadata } from "next";
-import Image from "next/image";
 import { type Locale, getDictionary } from "@/dictionaries";
 import Form from "./form";
-import getMetadata from "@/actions/get-metadata";
-
-export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
-    const dictionary = await getDictionary(params.lang);
-
-    return getMetadata({
-        dictionary: dictionary.seo.request_verification_notification,
-        path: `${params.lang}/request-email-verification`
-    });
-}
 
 export default async function RequestEmailVerification({ params: { lang } }: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(lang);

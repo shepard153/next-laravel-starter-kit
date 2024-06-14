@@ -1,18 +1,7 @@
 import { Suspense } from "react";
-import { Metadata } from "next";
 import { type Locale, getDictionary } from "@/dictionaries";
 import Loading from "@/components/utils/loading";
 import RegisterForm from './form';
-import getMetadata from "@/actions/get-metadata";
-
-export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
-    const dictionary = await getDictionary(params.lang);
-
-    return getMetadata({
-        dictionary: dictionary.seo.register,
-        path: `${params.lang}/register`
-    });
-}
 
 export default async function Register({ params: { lang } }: { params: { lang: Locale } }) {
     const dictionary = await getDictionary(lang);
