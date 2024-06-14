@@ -3,8 +3,8 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import FormInput from "@/components/forms/form-input";
+import SubmitButton from "@/components/forms/submit-button";
 import { signIn } from "@/lib/Auth";
-
 
 type LoginForm = {
     email: string,
@@ -80,12 +80,7 @@ export default function LoginForm({ dictionary }: { dictionary: Record<string, s
                            required
                 />
 
-                <button type="submit"
-                        disabled={isPending}
-                        className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500"
-                >
-                    {dictionary.login_button}
-                </button>
+                <SubmitButton text={dictionary.login_button} disabled={isPending} />
             </form>
 
             <FormError error={error} dictionary={dictionary} />
@@ -101,5 +96,7 @@ function FormError({ error, dictionary }: { error: string | null, dictionary: Re
         Default: dictionary.default_error,
     };
 
-    return <p className="absolute -top-3 xl:-top-6 left-0 w-full !mt-0 py-2 xl:py-4 text-center text-white tracking-wide bg-red-400">{errorMessages[error]}</p>;
+    return <p className="absolute -top-3 xl:-top-6 left-0 w-full !mt-0 py-2 xl:py-4 text-center text-white tracking-wide bg-red-400">
+        {errorMessages[error]}
+    </p>;
 }

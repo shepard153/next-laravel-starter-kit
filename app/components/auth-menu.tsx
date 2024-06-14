@@ -30,7 +30,7 @@ export default function AuthMenu({ dictionary }: { dictionary: Record<string, st
                 {dictionary.profile}
             </Link>
 
-            <Link href="#"
+            <Link href="/"
                   onClick={() => logout()}
                   className="w-full px-4 text-qc-bronze-dark no-underline"
             >

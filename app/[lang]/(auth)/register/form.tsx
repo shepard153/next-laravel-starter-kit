@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import FormInput from "@/components/forms/form-input";
 import { signIn } from "@/lib/Auth";
 import fetchServer from "@/actions/fetch-server";
+import SubmitButton from "@/components/forms/submit-button";
 
 export default function RegisterForm({ dictionary }: { dictionary: Record<string, string> }) {
     const [isPending, startTransition] = useTransition();
@@ -88,12 +89,7 @@ export default function RegisterForm({ dictionary }: { dictionary: Record<string
                        required
             />
 
-            <button type="submit"
-                    disabled={isPending}
-                    className="px-6 py-4 text-base text-white tracking-widest uppercase bg-sky-500"
-            >
-                {dictionary.register_button}
-            </button>
+            <SubmitButton text={dictionary.register_button} disabled={isPending} />
         </form>
     );
 }

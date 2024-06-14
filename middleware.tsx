@@ -32,7 +32,7 @@ export async function middleware(request: NextRequest) {
     if (token) {
         if (!user?.email_verified_at && (isAuthRoute || isGuestRoute)) {
             authRedirectUrl = "/request-email-verification";
-        } else if (user?.email_verified_at && (isAuthRoute || isVerifyRoute)) {
+        } else if (user?.email_verified_at && (isGuestRoute || isVerifyRoute)) {
             authRedirectUrl = "/profile";
         }
     }

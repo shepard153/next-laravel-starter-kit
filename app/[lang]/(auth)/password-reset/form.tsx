@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import FormInput from "@/components/forms/form-input";
 import fetchServer from "@/actions/fetch-server";
+import SubmitButton from "@/components/forms/submit-button";
 
 export default function ForgottenPasswordForm({ dictionary }: { dictionary: Record<string, string> }) {
     const searchParams = useSearchParams();
@@ -76,12 +77,7 @@ export default function ForgottenPasswordForm({ dictionary }: { dictionary: Reco
                        required
             />
 
-            <button type="submit"
-                    disabled={isPending}
-                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold"
-            >
-                {dictionary.reset_button}
-            </button>
+            <SubmitButton text={dictionary.reset_button} disabled={isPending} />
         </form>
     );
 }

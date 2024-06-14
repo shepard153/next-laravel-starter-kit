@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { FormEvent, useState, useTransition } from "react";
+import SubmitButton from "@/components/forms/submit-button";
 import useSession from "@/hooks/use-session";
 import fetchServer from "@/actions/fetch-server";
 
@@ -45,12 +46,7 @@ export default function Form({ dictionary }: { dictionary: Record<string, string
                             {dictionary.sent}
                         </div>
                     ) : (
-                    <button type="submit"
-                            disabled={isPending}
-                            className="px-6 py-4 text-sm text-white xl:text-base tracking-widest uppercase bg-sky-500"
-                    >
-                        {isPending ? dictionary.sending : dictionary.resend_button}
-                    </button>
+                    <SubmitButton text={dictionary.resend_button} disabled={isPending} />
                 )}
             </form>
 

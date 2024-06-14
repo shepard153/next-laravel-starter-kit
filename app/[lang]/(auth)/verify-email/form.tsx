@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTransition, useState, FormEvent } from "react";
+import SubmitButton from "@/components/forms/submit-button";
 import { emailVerified } from "@/lib/Auth";
 import fetchServer from "@/actions/fetch-server";
 
@@ -27,7 +28,7 @@ export default function VerifyEmailForm({ dictionary }: { dictionary: Record<str
                     bearer: true,
                     returns: "status"
                 })
-console.log(response)
+
                 if (response !== 200) {
                     setError(dictionary.verification_error);
                 } else {
@@ -44,12 +45,7 @@ console.log(response)
 
     return (
         <form onSubmit={submit} className="flex flex-col">
-            <button type="submit"
-                    disabled={isPending}
-                    className="px-6 py-4 text-sm xl:text-base tracking-widest uppercase bg-qc-gold"
-            >
-                {dictionary.verify_button}
-            </button>
+            <SubmitButton text={dictionary.verify_button} disabled={isPending} />
 
             {error && <div className="text-red-500">{error}</div>}
         </form>
