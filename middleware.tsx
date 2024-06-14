@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
 import { i18n } from "./i18n-config";
 import { getIronSessionData } from "@/lib/Auth";
 
@@ -50,13 +48,12 @@ export async function middleware(request: NextRequest) {
     if (pathnameIsMissingLocale) {
         const locale = i18n.defaultLocale;
 
-            return NextResponse.rewrite(
-                new URL(
-                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}${urlParams}`,
-                    request.url
-                )
+        return NextResponse.rewrite(
+            new URL(
+                `/${locale}${pathname.startsWith('/') ? '' : '/'}${authRedirectUrl ? authRedirectUrl : pathname}${urlParams}`,
+                request.url
             )
-
+        );
     }
 
     if (authRedirectUrl) {
@@ -69,17 +66,6 @@ export async function middleware(request: NextRequest) {
             )
         );
     }
-}
-
-function getLocale(request: NextRequest): string | undefined {
-    const negotiatorHeaders: Record<string, string> = {};
-    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-
-    // @ts-ignore locales are readonly
-    const locales: string[] = i18n.locales;
-    const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-
-    return matchLocale(languages, locales, i18n.defaultLocale);
 }
 
 export const config = {
